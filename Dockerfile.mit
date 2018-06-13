@@ -1,0 +1,14 @@
+FROM alpine
+
+RUN apk add --update krb5-server
+
+COPY mit/init-krb5.sh /
+COPY mit/kdc.conf /var/lib/krb5kdc/
+COPY krb5.conf /etc/
+COPY mit/entrypoint.sh /
+COPY mit/kadm5.acl /opt/krb5/kadm5.acl
+
+EXPOSE 88 464 749
+ENV REALM=EXAMPLE.COM
+ENV PRINCIPALS=pwman:pwmantest
+CMD ["/entrypoint.sh"]
