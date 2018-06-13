@@ -1,0 +1,4 @@
+*/admin@EXAMPLE.COM all *@EXAMPLE.COM
+*/admin@EXAMPLE.COM all */*@EXAMPLE.COM
+pwman@EXAMPLE.COM all *@EXAMPLE.COM
+pwman@EXAMPLE.COM all */*@EXAMPLE.COM

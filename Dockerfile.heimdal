@@ -1,0 +1,12 @@
+FROM alpine
+
+RUN apk add --update heimdal
+
+COPY ["heimdal/entrypoint.sh", "heimdal/init-heimdal.sh", "/"]
+COPY krb5.conf /etc/
+COPY heimdal/kadmind.acl /var/heimdal/kadmind.acl
+
+EXPOSE 88 749
+ENV REALM=EXAMPLE.COM
+ENV PRINCIPALS=pwman:pwmantest
+CMD ["/entrypoint.sh"]
